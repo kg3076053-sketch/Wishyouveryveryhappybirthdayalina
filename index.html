@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Alina 💗</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  min-height:100vh;
+  font-family:Arial,sans-serif;
+  color:white;
+  background:
+    radial-gradient(circle at 20% 10%,#ffb6dc66,transparent 30%),
+    radial-gradient(circle at 80% 20%,#c6a0ff66,transparent 30%),
+    linear-gradient(135deg,#ff5fae,#9b5de5,#5577ff);
+  overflow-x:hidden;
+}
+
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;
+  background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.25),transparent 48%);
+}
+
+.wrap{
+  max-width:650px;margin:auto;padding:18px 16px 70px;
+  text-align:center;position:relative;z-index:2;
+}
+
+.page{
+  min-height:92vh;
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  animation:pageIn .9s ease both;
+}
+
+.page.active{display:flex}
+
+.hero-title{
+  font-size:48px;line-height:1.12;
+  text-shadow:0 0 25px #fff9;
+  animation:titleGlow 2s ease-in-out infinite;
+}
+
+.small-title{
+  font-size:22px;
+  margin-top:12px;
+  opacity:.95;
+}
+
+.crown{
+  font-size:70px;
+  animation:float 2s ease-in-out infinite;
+  filter:drop-shadow(0 0 18px #fff9);
+}
+
+.subtitle{
+  font-size:18px;line-height:1.8;
+  margin:18px 0 28px;
+}
+
+button{
+  border:0;border-radius:50px;
+  padding:16px 28px;
+  background:#fff;color:#d13f91;
+  font-size:17px;font-weight:bold;
+  box-shadow:0 10px 30px #0004;
+  cursor:pointer;
+  transition:.25s;
+}
+
+button:active{transform:scale(.92)}
+
+.btn2{margin-top:24px}
+
+.card{
+  width:100%;
+  padding:30px 20px;
+  border-radius:32px;
+  background:#ffffff20;
+  border:1px solid #ffffff55;
+  backdrop-filter:blur(15px);
+  box-shadow:0 15px 45px #0003;
+}
+
+.card h2{font-size:29px;margin-bottom:18px}
+
+.message{
+  font-size:18px;line-height:1.9;
+}
+
+.symbols{font-size:25px;margin:20px 0}
+
+.big-heart{
+  font-size:95px;
+  animation:heartBeat 1.25s infinite;
+  filter:drop-shadow(0 0 25px #ffb6e8);
+}
+
+.sparkles{
+  font-size:30px;
+  letter-spacing:8px;
+  animation:sparkle 1.5s infinite alternate;
+}
+
+.photos{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
+  margin-top:20px;
+}
+
+.photo{
+  height:200px;border-radius:22px;overflow:hidden;
+  background:#ffffff25;border:2px solid #ffffff66;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 25px #0002;
+  animation:photoFloat 3s ease-in-out infinite;
+}
+
+.photo:nth-child(2){animation-delay:.3s}
+.photo:nth-child(3){animation-delay:.6s}
+.photo:nth-child(4){animation-delay:.9s}
+
+.photo img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+
+.loading{grid-column:1/-1;padding:25px;font-size:16px}
+
+.note{font-size:13px;opacity:.75;margin-top:15px}
+
+.final-page{
+  position:relative;
+}
+
+.shock{
+  font-size:16px;
+  opacity:.9;
+  margin-bottom:12px;
+}
+
+.final-title{
+  font-size:43px;
+  line-height:1.15;
+  margin:12px 0;
+  text-shadow:0 0 30px white;
+  animation:finalGlow 1s ease-in-out infinite alternate;
+}
+
+.final-message{
+  font-size:19px;
+  line-height:1.9;
+  max-width:550px;
+}
+
+.final-cake{
+  font-size:88px;
+  animation:cakePop 1.2s ease-in-out infinite alternate;
+}
+
+.confetti{
+  position:fixed;
+  top:-30px;
+  pointer-events:none;
+  z-index:10;
+  animation:confettiFall linear forwards;
+}
+
+.heart{
+  position:fixed;
+  bottom:-50px;
+  pointer-events:none;
+  animation:up linear forwards;
+  z-index:1;
+}
+
+.flash{
+  position:fixed;
+  inset:0;
+  background:white;
+  z-index:50;
+  pointer-events:none;
+  animation:flash .55s ease-out forwards;
+}
+
+@keyframes pageIn{
+  from{opacity:0;transform:translateY(35px) scale(.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+@keyframes float{
+  50%{transform:translateY(-12px) rotate(4deg)}
+}
+
+@keyframes titleGlow{
+  50%{transform:scale(1.025);text-shadow:0 0 38px #fff}
+}
+
+@keyframes heartBeat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.18)}
+}
+
+@keyframes sparkle{
+  from{opacity:.45;transform:scale(.92)}
+  to{opacity:1;transform:scale(1.08)}
+}
+
+@keyframes photoFloat{
+  50%{transform:translateY(-6px)}
+}
+
+@keyframes finalGlow{
+  from{transform:scale(1);text-shadow:0 0 20px #fff}
+  to{transform:scale(1.045);text-shadow:0 0 45px #fff}
+}
+
+@keyframes cakePop{
+  from{transform:translateY(0) rotate(-3deg)}
+  to{transform:translateY(-12px) rotate(3deg)}
+}
+
+@keyframes confettiFall{
+  to{transform:translateY(115vh) rotate(720deg);opacity:0}
+}
+
+@keyframes up{
+  0%{transform:translateY(0);opacity:0}
+  15%{opacity:1}
+  100%{transform:translateY(-115vh) rotate(25deg);opacity:0}
+}
+
+@keyframes flash{
+  0%{opacity:0}
+  20%{opacity:.9}
+  100%{opacity:0}
+}
+
+@media(max-width:450px){
+  .hero-title{font-size:38px}
+  .final-title{font-size:35px}
+  .photo{height:165px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <!-- PAGE 1 -->
+  <section id="page1" class="page active">
+    <div class="crown">👑</div>
+
+    <div class="sparkles">✨ ✨ ✨</div>
+
+    <h1 class="hero-title">
+      Happy Birthday<br>
+      Alina 🎂💗
+    </h1>
+
+    <div class="subtitle">
+      🌸 A tiny little surprise is waiting for you...<br>
+      Don't open it too quickly 👀💕
+    </div>
+
+    <button onclick="nextPage(2)">
+      Tap to Start 💗
+    </button>
+  </section>
+
+
+  <!-- PAGE 2 -->
+  <section id="page2" class="page">
+    <div class="card">
+      <div class="big-heart">💗</div>
+
+      <div class="sparkles">✨ 💕 ✨</div>
+
+      <h2>Waittt... Alina 👀</h2>
+
+      <div class="message">
+        This isn't just an ordinary birthday wish... 🦋<br><br>
+        Someone made this little page especially for you. 🌷<br>
+        So keep going... there's more waiting ahead. 💫
+      </div>
+
+      <button class="btn2" onclick="nextPage(3)">
+        Hmm... Show Me More 🥺💕
+      </button>
+    </div>
+  </section>
+
+
+  <!-- PAGE 3 -->
+  <section id="page3" class="page">
+    <div class="card">
+      <div class="sparkles">🌸 ✨ 🦋 ✨ 🌸</div>
+
+      <h2>💌 A Little Message</h2>
+
+      <div class="message">
+        To the most beautiful soul, Alina 🌷<br><br>
+
+        May your smile always stay this bright ✨,
+        may every dream in your heart come true 💫,
+        and may your life be filled with happiness,
+        peace, love and beautiful moments. 💕<br><br>
+
+        Keep smiling... because your smile is precious. 🦋
+      </div>
+
+      <div class="symbols">♡ ─── ✦ ─── ♡</div>
+
+      <button onclick="nextPage(4)">
+        One More Surprise 🎁
+      </button>
+    </div>
+  </section>
+
+
+  <!-- PAGE 4 -->
+  <section id="page4" class="page">
+    <div class="card">
+      <h2>📸 Beautiful Memories</h2>
+
+      <div id="gallery" class="photos">
+        <div class="loading">✨ Photos loading...</div>
+      </div>
+
+      <div class="note">
+        💗 Your GitHub images are detected automatically.
+      </div>
+
+      <button class="btn2" onclick="nextPage(5)">
+        Last One... Promise 🤭💗
+      </button>
+    </div>
+  </section>
+
+
+  <!-- PAGE 5 FINAL SHOCK -->
+  <section id="page5" class="page final-page">
+    <div class="final-cake">🎂</div>
+
+    <div class="sparkles">✨ 🎉 ✨ 🎉 ✨</div>
+
+    <div class="shock">
+      OKAY... HERE COMES THE REAL SURPRISE 👀
+    </div>
+
+    <h1 class="final-title">
+      HAPPY BIRTHDAY<br>
+      ALINA!!! 💗🎂
+    </h1>
+
+    <div class="final-message">
+      🌷 May this year bring you everything<br>
+      your heart secretly wishes for. 💫<br><br>
+
+      May you always have reasons to smile,<br>
+      people who truly care about you,<br>
+      and memories you'll never forget. 🦋💕<br><br>
+
+      <b>You deserve all the happiness in the world. 💗</b>
+    </div>
+
+    <div class="symbols">
+      🎀 💐 💕 ✨ 🦋 ✨ 💕 💐 🎀
+    </div>
+
+    <button onclick="celebrateAgain()">
+      Celebrate Again 🎉
+    </button>
+  </section>
+
+</div>
+
+
+<script>
+/* Cute page-to-page animation */
+function nextPage(number){
+
+  const current = document.querySelector(".page.active");
+
+  if(current){
+    current.classList.remove("active");
+  }
+
+  const next = document.getElementById("page" + number);
+
+  if(next){
+    next.classList.add("active");
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+  if(number === 5){
+    setTimeout(startConfetti,150);
+    setTimeout(bigSurprise,250);
+  }
+}
+
+
+/* Automatically find ANY uploaded image in GitHub repo */
+async function loadPhotos(){
+
+  const gallery = document.getElementById("gallery");
+
+  try{
+
+    const host = location.hostname;
+    const parts = location.pathname.split("/").filter(Boolean);
+
+    let owner = host.split(".")[0];
+    let repo = parts.length > 0 ? parts[0] : owner + ".github.io";
+
+    const api =
+      "https://api.github.com/repos/" +
+      owner + "/" + repo + "/contents/";
+
+    const response = await fetch(api);
+
+    if(!response.ok){
+      throw new Error("GitHub API error");
+    }
+
+    const files = await response.json();
+
+    const imageFiles = files.filter(file => {
+
+      if(file.type !== "file") return false;
+
+      const name = file.name.toLowerCase();
+
+      return (
+        name.endsWith(".jpg") ||
+        name.endsWith(".jpeg") ||
+        name.endsWith(".png") ||
+        name.endsWith(".webp") ||
+        name.endsWith(".gif")
+      );
+
+    });
+
+    gallery.innerHTML = "";
+
+    if(imageFiles.length === 0){
+      gallery.innerHTML = `
+        <div class="loading">
+          📸 Abhi koi image file nahi mili.<br><br>
+          GitHub repo mein photo upload karo.
+        </div>
+      `;
+      return;
+    }
+
+    imageFiles.forEach((file,index)=>{
+
+      const box = document.createElement("div");
+      box.className = "photo";
+
+      const img = document.createElement("img");
+      img.src = file.download_url;
+      img.alt = "Alina photo " + (index + 1);
+      img.loading = "lazy";
+
+      box.appendChild(img);
+      gallery.appendChild(box);
+
+    });
+
+  }catch(error){
+
+    gallery.innerHTML = `
+      <div class="loading">
+        ⚠️ Photos load nahi ho sakin.<br><br>
+        Please check that your GitHub repository is public.
+      </div>
+    `;
+  }
+}
+
+loadPhotos();
+
+
+/* Floating hearts */
+function createHeart(){
+
+  const h = document.createElement("div");
+
+  h.className = "heart";
+
+  h.textContent = [
+    "❤️","💗","💕","💖","✨","🌸","💐","🦋"
+  ][Math.floor(Math.random()*8)];
+
+  h.style.left = Math.random()*100 + "vw";
+  h.style.fontSize = (18 + Math.random()*22) + "px";
+  h.style.animationDuration = (5 + Math.random()*4) + "s";
+
+  document.body.appendChild(h);
+
+  setTimeout(()=>h.remove(),9000);
+}
+
+setInterval(createHeart,500);
+
+
+/* Final surprise */
+function bigSurprise(){
+
+  const flash = document.createElement("div");
+  flash.className = "flash";
+  document.body.appendChild(flash);
+
+  setTimeout(()=>flash.remove(),700);
+
+}
+
+
+/* Confetti */
+function startConfetti(){
+
+  const pieces = [
+    "🎉","🎊","✨","💗","💕","🌸","🎀","💐","⭐","🦋"
+  ];
+
+  for(let i=0;i<55;i++){
+
+    const c = document.createElement("div");
+
+    c.className = "confetti";
+
+    c.textContent =
+      pieces[Math.floor(Math.random()*pieces.length)];
+
+    c.style.left = Math.random()*100 + "vw";
+    c.style.fontSize = (14 + Math.random()*18) + "px";
+    c.style.animationDuration =
+      (2.5 + Math.random()*3) + "s";
+
+    c.style.animationDelay =
+      Math.random()*.8 + "s";
+
+    document.body.appendChild(c);
+
+    setTimeout(()=>c.remove(),6000);
+  }
+}
+
+
+/* Celebrate button */
+function celebrateAgain(){
+
+  startConfetti();
+
+  const flash = document.createElement("div");
+  flash.className = "flash";
+  document.body.appendChild(flash);
+
+  setTimeout(()=>flash.remove(),700);
+}
+</script>
+
+</body>
+</html>
